@@ -1,0 +1,22 @@
+{
+  "name": "identityfusion",
+  "version": "1.0.0",
+  "description": "Turns an HTML input into a Dynamic Identity Fusion Index widget",
+  "main": "dist/index.js",
+  "author": "Computational Cognitive Science Lab, UC Berkeley",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.0"
+  },
+  "dependencies": {
+    "throttle-debounce": "^1.0.1"
+  }
+}
