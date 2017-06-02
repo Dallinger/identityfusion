@@ -3,7 +3,7 @@ module.exports = {
   output: {
     filename: 'dist/index.js',
     libraryTarget: 'var',
-    library: 'dynamicidentity',
+    library: 'identityfusion',
   },
   module: {
     rules: [
@@ -13,4 +13,5 @@ module.exports = {
       },
     ],
   },
+  devtool: 'source-map',
 };

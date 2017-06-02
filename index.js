@@ -1,7 +1,8 @@
-import { throttle } from 'throttle-debounce';
+import throttle from 'throttle-debounce/throttle';
 import './styles.css';
 
 function addButton(container, label, onclick) {
+  // Add a button to a container.
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.className = 'button button-outline';
@@ -12,6 +13,7 @@ function addButton(container, label, onclick) {
 }
 
 function calculateOverlap(d, r, R) {
+  // Calculate the DIFI overlap.
   // d is the center-to-center spacing between the small and big circles.
   // r is the radius of the small circle.
   // R is the radius of the large circle.
@@ -28,12 +30,16 @@ function calculateOverlap(d, r, R) {
 }
 
 function outerLeft(el) {
+  // Find the left offset of an element (including border)
+  // relative to the page
   const rect = el.getBoundingClientRect();
   const left = rect.left + document.body.scrollLeft;
   return left - parseInt(getComputedStyle(el)['border-left-width'], 10);
 }
 
 function outerRight(el) {
+  // Find the right offset of an element (including border)
+  // relative to the page
   return outerLeft(el) + el.offsetWidth;
 }
 
@@ -51,6 +57,7 @@ export class DIFIInput {
   }
 
   initializeDOM() {
+    // Construct the widget.
     const name = this.el.getAttribute('name');
     this.el.setAttribute('name', `${name}_distance`);
     this.el.setAttribute('type', 'hidden');
@@ -89,6 +96,7 @@ export class DIFIInput {
   }
 
   startDrag(e) {
+    // Start tracking mouse when clicked.
     e.preventDefault();
     e.stopPropagation();
     this.me.className = 'DIFI-me dragging';
@@ -100,6 +108,7 @@ export class DIFIInput {
   }
 
   drag(e) {
+    // Update position of Me while dragging.
     e.preventDefault();
     e.stopPropagation();
     const deltaPixels = e.pageX - this.dragOrigX;
@@ -107,6 +116,7 @@ export class DIFIInput {
   }
 
   endDrag() {
+    // Stop tracking mouse when mouse released.
     this.me.className = 'DIFI-me';
     document.removeEventListener('mousemove', this.drag);
     document.removeEventListener('mouseup', this.endDrag);
@@ -115,7 +125,8 @@ export class DIFIInput {
   }
 
   update() {
-    // update value based on difference in position:
+    // Update distance and overlap values from current position.
+    // Distance is based on difference in position:
     // - left circle separated from right circle: -100 to 0
     // - left circle just touching right circle: 0
     // - left circle overlapping right circle: 0 to 100
@@ -127,12 +138,12 @@ export class DIFIInput {
     const groupPos = outerLeft(this.group);
     const d = mePos - groupPos;
     let value = 100 + 50 * d / r;
-    // snap to center
+    // Snap to center
     const elRange = this.me.parentNode;
     if (outerRight(elRange) - outerRight(this.me) < 2) {
       value = 125;
     }
-    // clip value to desired range (-100 to 125)
+    // Clip value to desired range (-100 to 125)
     value = Math.max(Math.min(Math.round(value * 1000) / 1000, 125), -100);
     this.el.setAttribute('value', value);
 
@@ -143,12 +154,15 @@ export class DIFIInput {
   }
 
   nudge(delta) {
+    // Move by `delta` units (1 unit = radius of Me circle)
     const unit = this.me.offsetWidth / 2;
     const deltaPixels = delta * unit;
     this.nudgePixels(deltaPixels);
   }
 
   nudgePixels(delta, origLeft) {
+    // Move by `delta` pixels
+    // (relative to origLeft if specified, or to current position)
     let start = origLeft;
     if (start === undefined) {
       start = parseInt(getComputedStyle(this.me).left, 10);

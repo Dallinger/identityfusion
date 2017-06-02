@@ -5,3 +5,4 @@ plugins:
   - import
 rules:
   no-mixed-operators: 0
+  import/prefer-default-export: 0
