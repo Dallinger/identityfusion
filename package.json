@@ -2,7 +2,7 @@
   "name": "identityfusion",
   "version": "1.0.0",
   "description": "Turns an HTML input into a Dynamic Identity Fusion Index (DIFI) widget",
-  "main": "dist/index.js",
+  "main": "dist/identityfusion.js",
   "author": "Computational Cognitive Science Lab, UC Berkeley",
   "license": "MIT",
   "engines": {

@@ -1,8 +1,8 @@
 module.exports = {
   entry: './index.js',
   output: {
-    filename: 'dist/index.js',
-    libraryTarget: 'var',
+    filename: 'dist/identityfusion.js',
+    libraryTarget: 'umd',
     library: 'identityfusion',
   },
   module: {
