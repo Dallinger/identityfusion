@@ -13,16 +13,20 @@ which represents the group. Two values are recorded:
 
 To use the widget, create an HTML input with a name:
 
-  <input name="DIFI" id="DIFI" />
+```
+<input name="DIFI" id="DIFI" />
+```
 
 Then create a new DIFIInput instance:
 
-  <script>
-    var el = document.getElementById('DIFI');
-    new dynamicidentity.DIFIInput(el, {
-      groupLabel: 'USA'
-    });
-  </script>
+```
+<script>
+  var el = document.getElementById('DIFI');
+  new dynamicidentity.DIFIInput(el, {
+    groupLabel: 'USA'
+  });
+</script>
+```
 
 Instantiating the DIFIInput will replace the original input
 with two hidden inputs named `DIFI_distance` and `DIFI_overlap`
