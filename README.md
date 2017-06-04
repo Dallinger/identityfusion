@@ -1,13 +1,19 @@
 # Description
 
 The `identityfusion` module turns an HTML input into an interactive
-widget for the user to indicate the degree to which their own identity
+widget that administers the [Dynamic Identity Fusion Index (DIFI)](http://www2.uned.es/pspp/measures/difi/index.htm) 
+[1], which assesses the degree to which the user's own identity
 fuses with a group identity. The widget consists of a circle labeled
 "Me" which can be dragged or moved using buttons to overlap a circle
 which represents the group. Two values are recorded:
 
 1. Distance
 2. Overlap
+
+[1] Jimenez, J., Gomez, A., Buhrmester, M. D., Vázquez, A., 
+Whitehouse, H., & Swann, W. B. (2016). The dynamic identity fusion 
+index: A new continuous measure of identity fusion for web-based 
+questionnaires. *Social Science Computer Review*, 34(2), 215-228.
 
 # Usage
 
