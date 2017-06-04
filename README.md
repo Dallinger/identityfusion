@@ -45,6 +45,6 @@ See `dist/demo.html` for an example.
 Several options can be specified in the second parameter
 when constructing a DIFIInput:
 
-* meLabel: The label for the circle representing the user. (Default: `Me`)
-* groupLabel: The label for the circle representing the group. (Default: `Group`)
-* groupImage: URL for an image to be shown as the background of the group circle. (Default: none)
+* `meLabel`: The label for the circle representing the user. (Default: `Me`)
+* `groupLabel`: The label for the circle representing the group. (Default: `Group`)
+* `groupImage`: URL for an image to be shown as the background of the group circle. (Default: none)
