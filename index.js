@@ -34,7 +34,7 @@ function outerLeft(el) {
   // relative to the page
   const rect = el.getBoundingClientRect();
   const left = rect.left + document.body.scrollLeft;
-  return left - parseInt(getComputedStyle(el)['border-left-width'], 10);
+  return left - parseFloat(getComputedStyle(el)['border-left-width'], 10);
 }
 
 function outerRight(el) {
@@ -101,7 +101,7 @@ export class DIFIInput {
     e.stopPropagation();
     this.me.className = 'DIFI-me dragging';
 
-    this.dragOrigLeft = parseInt(getComputedStyle(this.me).left, 10);
+    this.dragOrigLeft = parseFloat(getComputedStyle(this.me).left, 10);
     this.dragOrigX = e.pageX;
     document.addEventListener('mousemove', this.drag);
     document.addEventListener('mouseup', this.endDrag);
@@ -165,7 +165,7 @@ export class DIFIInput {
     // (relative to origLeft if specified, or to current position)
     let start = origLeft;
     if (start === undefined) {
-      start = parseInt(getComputedStyle(this.me).left, 10);
+      start = parseFloat(getComputedStyle(this.me).left, 10);
     }
     let finish = start + delta;
     if (finish < 0) {
@@ -174,7 +174,7 @@ export class DIFIInput {
     if (finish > this.elRange.offsetWidth - this.me.offsetWidth) {
       finish = this.elRange.offsetWidth - this.me.offsetWidth;
     }
-    this.me.style.left = `${finish}px`;
+    this.me.style.left = `${finish / this.elRange.offsetWidth * 100}%`;
     this.update();
   }
 }

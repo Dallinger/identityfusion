@@ -250,7 +250,7 @@ function outerLeft(el) {
   // relative to the page
   const rect = el.getBoundingClientRect();
   const left = rect.left + document.body.scrollLeft;
-  return left - parseInt(getComputedStyle(el)['border-left-width'], 10);
+  return left - parseFloat(getComputedStyle(el)['border-left-width'], 10);
 }
 
 function outerRight(el) {
@@ -276,11 +276,11 @@ class DIFIInput {
     // Construct the widget.
     const name = this.el.getAttribute('name');
     this.el.setAttribute('name', `${name}_distance`);
-    this.el.setAttribute('type', 'hidden');
+    // this.el.setAttribute('type', 'hidden');
 
     this.elOverlap = document.createElement('input');
     this.elOverlap.setAttribute('name', `${name}_overlap`);
-    this.elOverlap.setAttribute('type', 'hidden');
+    // this.elOverlap.setAttribute('type', 'hidden');
     this.el.insertAdjacentElement('afterend', this.elOverlap);
 
     const elContent = document.createElement('div');
@@ -317,7 +317,7 @@ class DIFIInput {
     e.stopPropagation();
     this.me.className = 'DIFI-me dragging';
 
-    this.dragOrigLeft = parseInt(getComputedStyle(this.me).left, 10);
+    this.dragOrigLeft = parseFloat(getComputedStyle(this.me).left, 10);
     this.dragOrigX = e.pageX;
     document.addEventListener('mousemove', this.drag);
     document.addEventListener('mouseup', this.endDrag);
@@ -381,7 +381,7 @@ class DIFIInput {
     // (relative to origLeft if specified, or to current position)
     let start = origLeft;
     if (start === undefined) {
-      start = parseInt(getComputedStyle(this.me).left, 10);
+      start = parseFloat(getComputedStyle(this.me).left, 10);
     }
     let finish = start + delta;
     if (finish < 0) {
@@ -390,7 +390,7 @@ class DIFIInput {
     if (finish > this.elRange.offsetWidth - this.me.offsetWidth) {
       finish = this.elRange.offsetWidth - this.me.offsetWidth;
     }
-    this.me.style.left = `${finish}px`;
+    this.me.style.left = `${finish / this.elRange.offsetWidth * 100}%`;
     this.update();
   }
 }
