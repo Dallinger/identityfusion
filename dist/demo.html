@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
   <script src="identityfusion.js"></script>
  </head>
  <body>
-  <input id="DIFI" name="DIFI" />
+  <div class="container">
+  	<input id="DIFI" name="DIFI" />
+  </div>
   <script>
    var el = document.getElementById('DIFI');
-   new identityfusion.DIFIInput(el);
+   new identityfusion.DIFIInput(el, {groupLabel: 'USA', groupImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png'});
   </script>
  </body>
 </html>
