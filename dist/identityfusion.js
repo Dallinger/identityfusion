@@ -276,11 +276,11 @@ class DIFIInput {
     // Construct the widget.
     const name = this.el.getAttribute('name');
     this.el.setAttribute('name', `${name}_distance`);
-    // this.el.setAttribute('type', 'hidden');
+    this.el.setAttribute('type', 'hidden');
 
     this.elOverlap = document.createElement('input');
     this.elOverlap.setAttribute('name', `${name}_overlap`);
-    // this.elOverlap.setAttribute('type', 'hidden');
+    this.elOverlap.setAttribute('type', 'hidden');
     this.el.insertAdjacentElement('afterend', this.elOverlap);
 
     const elContent = document.createElement('div');
@@ -327,6 +327,9 @@ class DIFIInput {
     // Update position of Me while dragging.
     e.preventDefault();
     e.stopPropagation();
+    if (this.dragOrigX === null) {
+      return;
+    }
     const deltaPixels = e.pageX - this.dragOrigX;
     this.nudgePixels(deltaPixels, this.dragOrigLeft);
   }

@@ -111,6 +111,9 @@ export class DIFIInput {
     // Update position of Me while dragging.
     e.preventDefault();
     e.stopPropagation();
+    if (this.dragOrigX === null) {
+      return;
+    }
     const deltaPixels = e.pageX - this.dragOrigX;
     this.nudgePixels(deltaPixels, this.dragOrigLeft);
   }
