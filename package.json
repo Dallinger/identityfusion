@@ -1,6 +1,6 @@
 {
   "name": "identityfusion",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Turns an HTML input into a Dynamic Identity Fusion Index (DIFI) widget",
   "main": "dist/identityfusion.js",
   "author": "Dallinger Project, UC Berkeley",
