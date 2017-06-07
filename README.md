@@ -9,7 +9,7 @@ fuses with a group identity. The widget consists of a circle labeled
 "Me" which can be dragged or moved using buttons to overlap a circle
 which represents the group.
 
-![demo](demo.gif)
+![demo](https://raw.githubusercontent.com/Dallinger/identityfusion/master/demo.gif)
 
 Two values are recorded:
 
